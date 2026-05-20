@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Curseur normal */
+html,
+body {
+  cursor: url("/cursor-normal.cur"), auto;
+}
+
+/* Liens + boutons */
+a,
+button,
+input[type="submit"],
+input[type="button"] {
+  cursor: url("/cursor-pointer.cur"), pointer;
+}
+
+/* Sélection de texte */
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: url("/cursor-text.cur"), text;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  background: pink;
+  color: blueviolet;
+}

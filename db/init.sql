@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS skills
+(id integer NOT NULL GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(255),
+description TEXT,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW(),
+PRIMARY KEY(id));
+
+CREATE TABLE IF NOT EXISTS tasks
+(id integer NOT NULL GENERATED ALWAYS AS IDENTITY,
+skill_id INTEGER,
+name VARCHAR(255),
+description TEXT,
+status BOOLEAN,
+    PRIMARY KEY (id),
+     CONSTRAINT "key_skills" FOREIGN KEY (skill_id)
+        REFERENCES skills (id) MATCH SIMPLE
+);
