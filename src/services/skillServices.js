@@ -19,3 +19,9 @@ export async function getAllSkills() {
     if (!res.ok) throw new Error("Erreur lors de la récupérations des skills");
     return res.json();
 }
+
+export async function getSkillById(id) {
+    const res = await fetch(`${BASE_URL}/${id}`);
+    if (!res.ok) throw new Error("Erreur lors de la récupérations du skill by id");
+    return res.json();
+}

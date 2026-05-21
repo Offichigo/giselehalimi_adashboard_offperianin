@@ -1,4 +1,4 @@
-export default function SkillList({ skills, deleteSkill, setSelectedSkill }) {
+export default function SkillList({skills, setSelectedSkill, removeTask}) {
   return skills.map((skill) => {
     return (
       <div key={skill.id}>
@@ -6,7 +6,7 @@ export default function SkillList({ skills, deleteSkill, setSelectedSkill }) {
         <button onClick={() => setSelectedSkill(skill.id)}>
           Voir les tâches
         </button>
-        <button onClick={() => deleteSkill(skill.id)}> Supprimer </button>
+        <button onClick={() => removeTask(skill.id)}> Supprimer </button>
       </div>
     );
   });

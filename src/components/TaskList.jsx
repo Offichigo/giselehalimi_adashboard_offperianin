@@ -1,9 +1,9 @@
-export default function TaskList({ tasks, deleteTask }) {
+export default function TaskList({tasks, removeTask}) {
   return tasks.map((task) => {
     return (
       <div key={task.id}>
         {task.name}
-        <button onClick={() => deleteTask(task.id)}>Supprimer</button>
+        <button onClick={() => removeTask(task.id)}>Supprimer</button>
       </div>
     );
   });

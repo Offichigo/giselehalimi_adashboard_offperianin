@@ -2,7 +2,7 @@
 //bouton pour soumettre le skills
 //Un state local pour stocker ce que l'utilisateur tape
 import { useState } from "react";
-export default function AddSkill({ addSkill }) {
+export default function AddSkill({addSkill}) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const handleSubmit = (e) => {
