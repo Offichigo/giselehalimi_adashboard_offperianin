@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@ramonak/react-progress-bar':
+        specifier: ^5.4.0
+        version: 5.4.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react:
         specifier: ^19.2.6
         version: 19.2.6
@@ -204,6 +207,12 @@ packages:
 
   '@oxc-project/types@0.130.0':
     resolution: {integrity: sha512-ibD2usx9JRu7f5pu2tMKMI4cpA4NgXJQoYRP4pQ7Pxmn1l6k/53qWtQWZayhYy3X4QZkt90Ot+mJEaeXouio6Q==}
+
+  '@ramonak/react-progress-bar@5.4.0':
+    resolution: {integrity: sha512-3MJ0TKPw7xhearDuO6egIRQrvuERoLn6CVc2hKnw89iEegUL6DzMY7Rptmz2KaHjK0zbev+PGyyvDW+IK4FJBg==}
+    peerDependencies:
+      react: ^16.0.0 || ^17 || ^18 || ^19
+      react-dom: ^16.0.0 || ^17 || ^18 || ^19
 
   '@rolldown/binding-android-arm64@1.0.1':
     resolution: {integrity: sha512-fJI3I0r3C3Oj/zdBCpaCmBRZYf07xpaq4yCfDDoSFm+beWNzbIl26puW8RraUdugoJw/95zerNOn6jasAhzSmg==}
@@ -1018,6 +1027,11 @@ snapshots:
     optional: true
 
   '@oxc-project/types@0.130.0': {}
+
+  '@ramonak/react-progress-bar@5.4.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
+    dependencies:
+      react: 19.2.6
+      react-dom: 19.2.6(react@19.2.6)
 
   '@rolldown/binding-android-arm64@1.0.1':
     optional: true

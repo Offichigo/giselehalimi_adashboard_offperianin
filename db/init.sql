@@ -8,7 +8,7 @@ PRIMARY KEY(id));
 
 CREATE TABLE IF NOT EXISTS tasks
 (id integer NOT NULL GENERATED ALWAYS AS IDENTITY,
-skill_id INTEGER,
+skill_id INTEGER REFERENCES skills(id) ON DELETE CASCADE,
 name VARCHAR(255),
 description TEXT,
 status BOOLEAN,
