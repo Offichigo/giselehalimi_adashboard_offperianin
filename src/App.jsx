@@ -5,8 +5,15 @@ import { useSkillsAndTasks } from "./hooks/useSkillsAndTasks";
 import Header from "./components/Header";
 
 function App() {
-  const { skills, tasks, setSelectedSkill, removeSkill, addSkill, removeTask } =
-    useSkillsAndTasks();
+  const {
+    skills,
+    tasks,
+    setSelectedSkill,
+    removeSkill,
+    addSkill,
+    removeTask,
+    updateTask,
+  } = useSkillsAndTasks();
   return (
     <>
       <Header></Header>
