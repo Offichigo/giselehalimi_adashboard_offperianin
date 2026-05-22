@@ -2,21 +2,21 @@ import SkillList from "./components/SkillList";
 import AddSkill from "./components/AddSkill";
 import TaskList from "./components/TaskList";
 import { useSkillsAndTasks } from "./hooks/useSkillsAndTasks";
+import Header from "./components/Header";
 
 function App() {
-  const {skills, tasks, setSelectedSkill, removeSkill, addSkill, removeTask} = useSkillsAndTasks();
+  const { skills, tasks, setSelectedSkill, removeSkill, addSkill, removeTask } =
+    useSkillsAndTasks();
   return (
     <>
-      <SkillList 
+      <Header></Header>
+      <SkillList
         skills={skills}
         setSelectedSkill={setSelectedSkill}
         removeTask={removeSkill}
       />
-      <TaskList 
-        tasks = {tasks}
-        removeTask = {removeTask}
-      />
-      <AddSkill addSkill={addSkill}/>
+      <TaskList tasks={tasks} removeTask={removeTask} updateTask={updateTask} />
+      <AddSkill addSkill={addSkill} />
     </>
   );
 }

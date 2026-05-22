@@ -6,12 +6,12 @@ INSERT INTO skills (name,description) VALUES
   ('Node.js','Une plateforme de développement Javascript');
 
  INSERT INTO tasks (name, description, status, skill_id) VALUES
-('Déclarer une variable', 'Utiliser let, const ou var', false, 1),
-('Écrire une fonction', 'Déclarer et appeler une fonction', false, 1),
-('Manipuler le DOM', 'Sélectionner et modifier des éléments HTML', false, 1),
-('Créer un composant', 'Écrire un composant fonctionnel React', false, 2),
-('Utiliser useState', 'Gérer un état local dans un composant', false, 2),
-('Écrire un SELECT', 'Récupérer des données depuis une table', false, 3),
-('Écrire un INSERT', 'Ajouter des données dans une table', false, 3),
-('Créer une table', 'Écrire un CREATE TABLE avec des colonnes', false, 4),
-('Lancer un serveur', 'Démarrer un serveur Node.js', false, 5);
+('déclarer une variable', 'Utiliser let, const ou var', false, 1),
+('écrire une fonction', 'Déclarer et appeler une fonction', false, 1),
+('manipuler le DOM', 'Sélectionner et modifier des éléments HTML', false, 1),
+('créer un composant', 'Écrire un composant fonctionnel React', false, 2),
+('utiliser useState', 'Gérer un état local dans un composant', false, 2),
+('écrire un SELECT', 'Récupérer des données depuis une table', false, 3),
+('écrire un INSERT', 'Ajouter des données dans une table', false, 3),
+('créer une table', 'Écrire un CREATE TABLE avec des colonnes', false, 4),
+('lancer un serveur', 'Démarrer un serveur Node.js', false, 5);

@@ -6,6 +6,7 @@
 
 /* Curseur normal */
 html,
+label,
 body {
   cursor: url("/cursor-normal.cur"), auto;
 }
@@ -14,6 +15,7 @@ body {
 a,
 button,
 input[type="submit"],
+input[type="checkbox"],
 input[type="button"] {
   cursor: url("/cursor-pointer.cur"), pointer;
 }
