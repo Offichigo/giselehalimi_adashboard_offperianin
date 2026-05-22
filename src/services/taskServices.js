@@ -19,3 +19,10 @@ export async function updateTaskById(id, status) {
     body: JSON.stringify({ status }),
   });
 }
+
+export async function getProgressValueBySkill(skill) {
+  const res = await fetch(`${BASE_URL}/progressBar/${skill}`);
+  if (!res.ok)
+    throw new Error("Erreur récupération de la barre de progression");
+  return res.json();
+}

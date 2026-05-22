@@ -33,4 +33,15 @@ tasksRouter.delete("/:id", async (req, res) => {
   res.json({ message: "Delete a tasks" });
 });
 
+tasksRouter.get("/progressBar/:id", async function (req, res) {
+  const { rows } = await pool.query("SELECT * from tasks WHERE skill_id= $1", [
+    req.params.id,
+  ]);
+  let taskComplete = 0;
+  rows.forEach((row) => {
+    if (row.status) taskComplete += 1;
+  });
+
+  res.json(taskComplete / rows.length);
+});
 export default tasksRouter;

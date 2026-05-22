@@ -8,6 +8,7 @@ import {
   getTaskBySkill,
   deleteTaskById,
   updateTaskById,
+  getProgressValueBySkill,
 } from "../services/taskServices";
 import { useState, useEffect } from "react";
 
@@ -28,8 +29,6 @@ export function useSkillsAndTasks() {
     if (!selectedSkill) return; //ne fait si aucun skill selectionné
     const fetchTasks = async () => {
       const data = await getTaskBySkill(selectedSkill);
-      console.log("toto");
-      console.log(data);
       setTasks(data);
     };
     fetchTasks();
@@ -56,6 +55,27 @@ export function useSkillsAndTasks() {
       tasks.map((task) => (task.id === id ? { ...task, status } : task)),
     );
   };
+
+  const getProgressValueBySkill = async (skillId) => {
+    const progressValue = await getProgressValueBySkill(selectedSkill);
+    console.log("hello toto");
+    console.log(progressValue);
+    return progressValue;
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log(skills);
+      const skillsWithProgress = await Promise.all(
+        skills.map(async (skill) => ({
+          ...skill,
+          progress: await getProgressValueBySkill(skill.id),
+        })),
+      );
+      setSkills(skillsWithProgress);
+    };
+    fetchData();
+  }, [skills]);
+
   return {
     skills,
     tasks,
