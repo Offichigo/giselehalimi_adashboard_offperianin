@@ -18,13 +18,13 @@ export function useSkillsAndTasks() {
   const [tasks, setTasks] = useState([]);
   const [refresh, setRefresh] = useState(0);
 
-  useEffect(() => {
-    const fetchSkills = async () => {
-      const data = await getAllSkills();
-      setSkills(data);
-    };
-    fetchSkills();
-  }, []);
+  // useEffect(() => {
+  //   const fetchSkills = async () => {
+  //     const data = await getAllSkills();
+  //     setSkills(data);
+  //   };
+  //   fetchSkills();
+  // }, []);
 
   useEffect(() => {
     if (!selectedSkill) return; //ne fait si aucun skill selectionné
@@ -55,7 +55,7 @@ export function useSkillsAndTasks() {
     setTasks(
       tasks.map((task) => (task.id === id ? { ...task, status } : task)),
     );
-    setRefresh(prev => prev + 1);
+    setRefresh((prev) => prev + 1);
   };
 
   useEffect(() => {
@@ -63,17 +63,14 @@ export function useSkillsAndTasks() {
       const data = await getAllSkills();
       const skillsWithProgress = await Promise.all(
         data.map(async (skill) => {
-            const progress = await getProgressValueBySkill(skill.id);
-            return {
-            ...skill,
-            progress: progress
-          }
-        })
+          const progress = await getProgressValueBySkill(skill.id);
+          return { ...skill, progress };
+        }),
       );
       setSkills(skillsWithProgress);
     };
     fetchData();
-  }, [refresh]);
+  }, [refresh]); // ← se lance au montage ET après chaque refresh
 
   return {
     skills,

@@ -20,7 +20,7 @@ function App() {
       <SkillList
         skills={skills}
         setSelectedSkill={setSelectedSkill}
-        removeTask={removeSkill}
+        removeSkill={removeSkill}
       />
       <TaskList tasks={tasks} removeTask={removeTask} updateTask={updateTask} />
       <AddSkill addSkill={addSkill} />
