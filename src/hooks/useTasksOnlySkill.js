@@ -7,7 +7,6 @@ import {
 
 export function useTasksOnlySkill(skillId) {
   const [tasks, setTasks] = useState([]);
-
   useEffect(() => {
     if (!skillId) return; //ne fait si aucun skill selectionné
     const fetchTasks = async () => {

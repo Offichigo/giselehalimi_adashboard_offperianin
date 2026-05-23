@@ -1,14 +1,21 @@
 import { useTasksOnlySkill } from "../hooks/useTasksOnlySkill";
+import trashIcon from "../assets/trash.png";
+import addIcon from "../assets/addfiles.png";
+import folderIcon from "../assets/folder.png";
+import { useState } from "react";
 
 export default function SkillCard({ skill, removeSkill }) {
   const { tasks, removeTask, updateTask } = useTasksOnlySkill(skill.id);
+  const [showDesc, setShowDesc] = useState(false);
   const total = tasks.length;
   const done = tasks.filter((task) => task.status === true).length;
   const progress = total === 0 ? 0 : Math.round((done / total) * 100);
   return (
     <div>
-      {skill.name}
-      <div style={{ background: "#eee", borderRadius: 8, height: 12 }}>
+      <h2>{skill.name}</h2>
+      <button onClick={() => setShowDesc(!showDesc)}>ℹ️</button>
+      {showDesc && <p>{skill.description}</p>}
+      <div style={{ borderRadius: 8, height: 12 }}>
         <div
           style={{
             width: `${progress}%`,
@@ -30,11 +37,19 @@ export default function SkillCard({ skill, removeSkill }) {
             onChange={() => updateTask(task.id, !task.status)}
           />
 
-          <button onClick={() => removeTask(task.id)}>Supprimer</button>
+          <button className="buttImg" onClick={() => removeTask(task.id)}>
+            <img
+              className="buttImg"
+              src={trashIcon}
+              alt="supprimer"
+              width={32}
+            />{" "}
+            Supprimer la tâche
+          </button>
         </div>
       ))}
-      <button onClick={() => removeSkill(skill.id)}>
-        Supprimer une compétence
+      <button className="buttImg" onClick={() => removeSkill(skill.id)}>
+        <img className="buttImg" src={trashIcon} alt="supprimer" width={32} />
       </button>
     </div>
   );
