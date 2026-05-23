@@ -14,8 +14,8 @@ import { useState, useEffect } from "react";
 
 export function useSkillsAndTasks() {
   const [skills, setSkills] = useState([]);
-  const [selectedSkill, setSelectedSkill] = useState(null);
-  const [tasks, setTasks] = useState([]);
+  // const [selectedSkill, setSelectedSkill] = useState(null);
+  // const [tasks, setTasks] = useState([]);
   const [refresh, setRefresh] = useState(0);
 
   // useEffect(() => {
@@ -26,15 +26,6 @@ export function useSkillsAndTasks() {
   //   fetchSkills();
   // }, []);
 
-  useEffect(() => {
-    if (!selectedSkill) return; //ne fait si aucun skill selectionné
-    const fetchTasks = async () => {
-      const data = await getTaskBySkill(selectedSkill);
-      setTasks(data);
-    };
-    fetchTasks();
-  }, [selectedSkill]);
-
   const removeSkill = async (id) => {
     await deleteSkillById(id);
     setSkills(skills.filter((skill) => skill.id !== id));
@@ -43,19 +34,6 @@ export function useSkillsAndTasks() {
   const addSkill = async (name, description) => {
     const res = await addNewSkill(name, description);
     setSkills([...skills, res]);
-  };
-
-  const removeTask = async (id) => {
-    await deleteTaskById(id);
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
-
-  const updateTask = async (id, status) => {
-    await updateTaskById(id, status);
-    setTasks(
-      tasks.map((task) => (task.id === id ? { ...task, status } : task)),
-    );
-    setRefresh((prev) => prev + 1);
   };
 
   useEffect(() => {
@@ -74,11 +52,7 @@ export function useSkillsAndTasks() {
 
   return {
     skills,
-    tasks,
-    setSelectedSkill,
     removeSkill,
     addSkill,
-    removeTask,
-    updateTask,
   };
 }

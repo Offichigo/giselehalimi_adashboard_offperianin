@@ -1,28 +1,15 @@
 import SkillList from "./components/SkillList";
 import AddSkill from "./components/AddSkill";
-import TaskList from "./components/TaskList";
-import { useSkillsAndTasks } from "./hooks/useSkillsAndTasks";
 import Header from "./components/Header";
+import { useSkillsAndTasks } from "./hooks/useSkillsAndTasks";
 
 function App() {
-  const {
-    skills,
-    tasks,
-    setSelectedSkill,
-    removeSkill,
-    addSkill,
-    removeTask,
-    updateTask,
-  } = useSkillsAndTasks();
+  const { skills, removeSkill, addSkill } = useSkillsAndTasks();
+
   return (
     <>
-      <Header></Header>
-      <SkillList
-        skills={skills}
-        setSelectedSkill={setSelectedSkill}
-        removeSkill={removeSkill}
-      />
-      <TaskList tasks={tasks} removeTask={removeTask} updateTask={updateTask} />
+      <Header />
+      <SkillList skills={skills} removeSkill={removeSkill} />
       <AddSkill addSkill={addSkill} />
     </>
   );
