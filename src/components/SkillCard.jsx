@@ -11,12 +11,18 @@ export default function SkillCard({ skill, removeSkill }) {
   const done = tasks.filter((task) => task.status === true).length;
   const progress = total === 0 ? 0 : Math.round((done / total) * 100);
   return (
-    <div>
+    <div className="skill-card">
       <h2>{skill.name}</h2>
-      <button onClick={() => setShowDesc(!showDesc)}>ℹ️</button>
+      <button className="buttImg" onClick={() => setShowDesc(!showDesc)}>
+        ℹ️
+      </button>
       {showDesc && <p>{skill.description}</p>}
-      <div style={{ borderRadius: 8, height: 12 }}>
+      <div
+        className="progress-container"
+        style={{ background: "#eee", borderRadius: 8, height: 12 }}
+      >
         <div
+          className="progress-bar"
           style={{
             width: `${progress}%`,
             background: "#af4c4c",
@@ -28,7 +34,7 @@ export default function SkillCard({ skill, removeSkill }) {
       </div>
       <span>{progress}%</span>
       {tasks.map((task) => (
-        <div key={task.id}>
+        <div className="task-item" key={task.id}>
           {"je sais "}
           {task.name}
           <input
