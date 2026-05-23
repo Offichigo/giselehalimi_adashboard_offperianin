@@ -16,6 +16,7 @@ export function useSkillsAndTasks() {
   const [skills, setSkills] = useState([]);
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [tasks, setTasks] = useState([]);
+  const [refresh, setRefresh] = useState(0);
 
   useEffect(() => {
     const fetchSkills = async () => {
@@ -54,27 +55,25 @@ export function useSkillsAndTasks() {
     setTasks(
       tasks.map((task) => (task.id === id ? { ...task, status } : task)),
     );
+    setRefresh(prev => prev + 1);
   };
 
-  const getProgressValueBySkill = async (skillId) => {
-    const progressValue = await getProgressValueBySkill(selectedSkill);
-    console.log("hello toto");
-    console.log(progressValue);
-    return progressValue;
-  };
   useEffect(() => {
     const fetchData = async () => {
-      console.log(skills);
+      const data = await getAllSkills();
       const skillsWithProgress = await Promise.all(
-        skills.map(async (skill) => ({
-          ...skill,
-          progress: await getProgressValueBySkill(skill.id),
-        })),
+        data.map(async (skill) => {
+            const progress = await getProgressValueBySkill(skill.id);
+            return {
+            ...skill,
+            progress: progress
+          }
+        })
       );
       setSkills(skillsWithProgress);
     };
     fetchData();
-  }, [skills]);
+  }, [refresh]);
 
   return {
     skills,
