@@ -25,7 +25,7 @@ export default function SkillCard({ skill, removeSkill }) {
           className="progress-bar"
           style={{
             width: `${progress}%`,
-            background: "#af4c4c",
+            background: "#d25656",
             height: "100%",
             borderRadius: 8,
             transition: "width 0.3s",

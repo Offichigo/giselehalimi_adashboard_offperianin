@@ -2,7 +2,8 @@
 //bouton pour soumettre le skills
 //Un state local pour stocker ce que l'utilisateur tape
 import { useState } from "react";
-export default function AddSkill({addSkill}) {
+
+export default function AddSkill({ addSkill }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const handleSubmit = (e) => {
@@ -11,13 +12,13 @@ export default function AddSkill({addSkill}) {
   };
   return (
     <>
-      <form method="post" onSubmit={handleSubmit}>
-        <label>
+      <form className="forms-skill" method="post" onSubmit={handleSubmit}>
+        <label className="forms-skill">
           Entrer une compétence:{" "}
           <input value={name} onChange={(e) => setName(e.target.value)} />
         </label>
         <hr />
-        <label>
+        <label className="forms-skill">
           Description de la compétence
           <input
             value={description}
@@ -25,7 +26,9 @@ export default function AddSkill({addSkill}) {
           />
         </label>
         <hr />
-        <button type="submit">Ajouter</button>
+        <button className="buttImg" type="submit">
+          Ajouter
+        </button>
       </form>
     </>
   );
