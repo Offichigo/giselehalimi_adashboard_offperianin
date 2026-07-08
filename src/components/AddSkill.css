@@ -1,4 +1,49 @@
-.forms-skill {
-  display: flex;
-  align-items: row;
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffe4ec;
+  border: 3px solid blueviolet;
+  border-radius: 8px;
+  padding: 24px;
+  z-index: 100;
+}
+
+.add-btn {
+  position: relative;
+}
+
+.add-btn::after {
+  content: "Ajouter une compétence";
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: blueviolet;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.stop-btn::after {
+  content: "Annuler";
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: blueviolet;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.add-btn:hover::after {
+  opacity: 1;
 }
