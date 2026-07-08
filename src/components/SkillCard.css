@@ -1,0 +1,42 @@
+.buttImg {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.skill-card {
+  background: #ffe4ec;
+  border: 3px solid blueviolet;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px auto;
+  width: 400px;
+}
+
+.skill-card h2 {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+
+.progress-container {
+  background: #f0b8c8;
+  border-radius: 8px;
+  height: 12px;
+  margin: 8px 0;
+}
+
+.progress-bar {
+  background: blueviolet;
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.3s;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  padding: 4px;
+  border-bottom: 1px solid #f0b8c8;
+}
